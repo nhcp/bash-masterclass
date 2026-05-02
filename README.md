@@ -1,21 +1,56 @@
-# 🚀 Bash Mastery for DevOps
-This repository is a step-by-step lab for mastering Bash scripting. Each module covers a core concept required for professional Cloud and DevOps automation.
+# 🚀 Bash Mastery for DevOps Engineers
 
-## 🛠️ Curriculum Roadmap
-- [ ] **Module 01: The Skeleton** (Shebang, Echo, Permissions)
-- [ ] **Module 02: The Memory** (Variables & User Input)
-- [ ] **Module 03: The Math** (Arithmetic & Command Substitution)
-- [ ] **Module 04: The Brain** (If-Statements & Exit Codes)
-- [ ] **Module 05: The Files** (File/Directory Tests -f, -d)
-- [ ] **Module 06: The Factory** (Loops: For & While)
-- [ ] **Module 07: The Search** (Grep, Pipes, and Redirection)
-- [ ] **Module 08: The Shorthand** (Sed & Awk Basics)
-- [ ] **Module 09: The Architect** (Functions & Arguments)
-- [ ] **Module 10: The Guardian** (Error Handling & Traps)
+Hands-on Bash scripting course built for Junior DevOps and Cloud Engineering
+roles in Germany. Every script runs on a real Hetzner VPS — not locally,
+not in a simulator. Real infrastructure from day one.
 
-## 📖 How to Run
-Every script must be made executable before running:
+---
+
+## 🖥️ Your Lab Setup — Do This Before Module 01
+
+You need two things:
+
+### 1. A Hetzner VPS
 ```bash
-chmod +x <script_name>.sh
-./<script_name>.sh
+# Go to console.hetzner.cloud
+# New Project → name it "bash-masterclass"
+# Add Server:
+#   Location : Nuremberg (nbg1)
+#   Image    : Ubuntu 22.04 LTS
+#   Type     : CX11 (€4/month)
+#   SSH Key  : add your public key
+# Save the IP address — you will use it every day
 ```
+
+### 2. First-Time Server Setup
+Run this once after your VPS is created:
+```bash
+# Connect as root
+ssh root@YOUR_HETZNER_IP
+
+# Run the setup script
+curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/bash-masterclass/main/setup.sh | bash
+```
+
+> The setup script creates a `deploy` user, installs required tools
+> (nginx, docker, shellcheck, fail2ban, ufw), and hardens SSH.
+> Source: `setup.sh` in this repo — read it before running.
+
+### 3. SSH Shortcut on Your Laptop
+```bash
+# Add to ~/.ssh/config on your laptop
+Host hetzner
+    HostName YOUR_HETZNER_IP
+    User deploy
+    IdentityFile ~/.ssh/id_ed25519
+
+# Now you can connect with just:
+ssh hetzner
+```
+
+---
+
+## 📋 How Every Module Works
+
+Each module lives in its own folder with its own README.
+Open the module folder, read the README, follow the steps.
